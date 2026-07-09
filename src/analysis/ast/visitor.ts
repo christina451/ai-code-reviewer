@@ -1,18 +1,26 @@
 import type { TSESTree } from '@typescript-eslint/typescript-estree';
 
 export type VisitorHandlers = Partial<{
-  [K in TSESTree.Node['type']]: (node: Extract<TSESTree.Node, { type: K }>) => void;
+  [K in TSESTree.Node['type']]: (
+    node: Extract<TSESTree.Node, { type: K }>,
+  ) => void | 'skip';
 }>;
 
 export function walk(
   node: TSESTree.Node | null | undefined,
   handlers: VisitorHandlers,
+  parent?: TSESTree.Node,
 ): void {
   if (!node || typeof node !== 'object') return;
 
+  if (parent) {
+    (node as TSESTree.Node & { parent: TSESTree.Node }).parent = parent;
+  }
+
   const handler = handlers[node.type as keyof VisitorHandlers];
   if (handler) {
-    (handler as (n: TSESTree.Node) => void)(node);
+    const result = (handler as (n: TSESTree.Node) => void | 'skip')(node);
+    if (result === 'skip') return;
   }
 
   for (const key of Object.keys(node)) {
@@ -21,10 +29,10 @@ export function walk(
 
     if (Array.isArray(value)) {
       for (const item of value) {
-        if (isASTNode(item)) walk(item, handlers);
+        if (isASTNode(item)) walk(item, handlers, node);
       }
     } else if (isASTNode(value)) {
-      walk(value, handlers);
+      walk(value, handlers, node);
     }
   }
 }
