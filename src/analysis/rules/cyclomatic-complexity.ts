@@ -23,7 +23,7 @@ const BRANCHING_NODE_TYPES = new Set([
   'SwitchCase',
 ]);
 
-function computeComplexityForFunction(funcNode: FunctionNode): number {
+export function computeFunctionComplexity(funcNode: FunctionNode): number {
   let complexity = 1;
   const body = funcNode.body;
   if (!body) return complexity;
@@ -56,7 +56,7 @@ export function runCyclomaticComplexity(file: ParsedFile): Finding[] {
 }
 
 function analyzeFunction(node: FunctionNode, findings: Finding[]): void {
-  const complexity = computeComplexityForFunction(node);
+  const complexity = computeFunctionComplexity(node);
   if (complexity <= COMPLEXITY_WARNING_THRESHOLD) return;
 
   const name = getFunctionName(node);
