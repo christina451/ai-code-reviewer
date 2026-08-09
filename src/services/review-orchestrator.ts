@@ -1,14 +1,26 @@
-/**
- * ReviewOrchestrator.
- *
- * Coordinates one end-to-end review request: call AnalysisService to get
- * findings, pass findings + source to AIService, persist the result via
- * a repository, and stream the response back to the caller.
- *
- * This is the only place that knows about the full sequence. Individual
- * services don't know about each other.
- *
- * Filled in during Milestone 8 (prompt design + streaming).
- */
+import type { AIService } from '@/services/ai-service';
+import type { AnalysisResult } from '@/domain/types';
 
-export {};
+/**
+ * Sequences the steps of generating one code review:
+ *   1. Call the AI service with the analysis result
+ *   2. Yield tokens as they arrive
+ *   3. (Milestone 9) Persist the completed review via ReviewRepository
+ *
+ * Accepting AIService via the constructor keeps this class testable —
+ * tests pass a mock generator, never touching the network.
+ */
+export class ReviewOrchestrator {
+  constructor(private readonly aiService: AIService) {}
+
+  async *generateReview(
+    analysisResult: AnalysisResult,
+    source: string,
+  ): AsyncIterable<string> {
+    // Milestone 9: save the pending review to the database before the AI call.
+    
+    yield* this.aiService.generateReview({ analysisResult, source });
+
+    // Milestone 9: save the completed review to the database after streaming.
+  }
+}
