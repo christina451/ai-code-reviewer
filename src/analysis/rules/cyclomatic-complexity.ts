@@ -3,6 +3,7 @@ import type { Finding } from '@/domain/types';
 import type { ParsedFile } from '@/analysis/ast/parser';
 import type { VisitorHandlers } from '@/analysis/ast/visitor';
 import { walk } from '@/analysis/ast/visitor';
+import { getFunctionName, type FunctionNode } from '@/analysis/ast/utils';
 
 const RULE_ID = 'cyclomatic-complexity';
 
@@ -22,52 +23,8 @@ const BRANCHING_NODE_TYPES = new Set([
   'SwitchCase',
 ]);
 
-function getFunctionName(
-  node:
-    | TSESTree.FunctionDeclaration
-    | TSESTree.FunctionExpression
-    | TSESTree.ArrowFunctionExpression,
-): string {
-  if (node.type === 'FunctionDeclaration' && node.id?.name) {
-    return node.id.name;
-  }
-
-  if (node.type === 'FunctionExpression' && node.id?.name) {
-    return node.id.name;
-  }
-
-  if (
-    node.parent?.type === 'VariableDeclarator' &&
-    node.parent.id.type === 'Identifier'
-  ) {
-    return node.parent.id.name;
-  }
-
-  if (
-    node.parent?.type === 'Property' &&
-    node.parent.key.type === 'Identifier'
-  ) {
-    return node.parent.key.name;
-  }
-
-  if (
-    node.parent?.type === 'MethodDefinition' &&
-    node.parent.key.type === 'Identifier'
-  ) {
-    return node.parent.key.name;
-  }
-
-  return 'anonymous';
-}
-
-function computeComplexityForFunction(
-  funcNode:
-    | TSESTree.FunctionDeclaration
-    | TSESTree.FunctionExpression
-    | TSESTree.ArrowFunctionExpression,
-): number {
+function computeComplexityForFunction(funcNode: FunctionNode): number {
   let complexity = 1;
-
   const body = funcNode.body;
   if (!body) return complexity;
 
@@ -78,7 +35,6 @@ function computeComplexityForFunction(
         () => { complexity++; },
       ]),
     ) as VisitorHandlers),
-
     FunctionDeclaration: () => 'skip',
     FunctionExpression: () => 'skip',
     ArrowFunctionExpression: () => 'skip',
@@ -91,35 +47,20 @@ export function runCyclomaticComplexity(file: ParsedFile): Finding[] {
   const findings: Finding[] = [];
 
   walk(file.ast, {
-    FunctionDeclaration(node) {
-      analyzeFunction(node, findings);
-    },
-    FunctionExpression(node) {
-      analyzeFunction(node, findings);
-    },
-    ArrowFunctionExpression(node) {
-      analyzeFunction(node, findings);
-    },
+    FunctionDeclaration(node) { analyzeFunction(node, findings); },
+    FunctionExpression(node) { analyzeFunction(node, findings); },
+    ArrowFunctionExpression(node) { analyzeFunction(node, findings); },
   });
 
   return findings;
 }
 
-function analyzeFunction(
-  node:
-    | TSESTree.FunctionDeclaration
-    | TSESTree.FunctionExpression
-    | TSESTree.ArrowFunctionExpression,
-  findings: Finding[],
-): void {
+function analyzeFunction(node: FunctionNode, findings: Finding[]): void {
   const complexity = computeComplexityForFunction(node);
-
   if (complexity <= COMPLEXITY_WARNING_THRESHOLD) return;
 
   const name = getFunctionName(node);
   const severity = complexity > COMPLEXITY_ERROR_THRESHOLD ? 'error' : 'warning';
-  const line = node.loc?.start.line ?? 0;
-  const column = node.loc?.start.column ?? 0;
 
   findings.push({
     ruleId: RULE_ID,
@@ -127,8 +68,8 @@ function analyzeFunction(
     message:
       `Function '${name}' has cyclomatic complexity of ${complexity} ` +
       `(threshold: ${COMPLEXITY_WARNING_THRESHOLD})`,
-    line,
-    column,
+    line: node.loc?.start.line ?? 0,
+    column: node.loc?.start.column ?? 0,
     context: name,
     value: complexity,
   });
