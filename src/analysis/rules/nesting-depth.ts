@@ -87,3 +87,7 @@ function check(node: FunctionNode, findings: Finding[]): void {
     value: maxDepth,
   });
 }
+export function computeFunctionNestingDepth(node: FunctionNode): number {
+  if (!node.body) return 0;
+  return measureMaxDepth(node.body, 0);
+}
