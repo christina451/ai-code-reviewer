@@ -1,9 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { ReviewOrchestrator } from './review-orchestrator';
 import type { AIService } from './ai-service';
-import type { AnalysisResult } from '@/domain/types';
+import type { ReviewRepository } from './review-repository';
+import type { AnalysisResult, Review } from '@/domain/types';
 
-// Minimal AnalysisResult fixture — only needs to satisfy the type.
 const mockResult: AnalysisResult = {
   filename: 'test.ts',
   language: 'TypeScript',
@@ -13,7 +13,30 @@ const mockResult: AnalysisResult = {
   functions: [],
 };
 
-/** Collect all tokens from an AsyncIterable into an array. */
+const mockReview: Review = {
+  id: 'test-uuid',
+  filename: 'test.ts',
+  language: 'TypeScript',
+  lineCount: 5,
+  analysisResult: mockResult,
+  reviewText: null,
+  status: 'pending',
+  errorMessage: null,
+  createdAt: new Date(),
+  completedAt: null,
+};
+
+function makeMockRepository(overrides?: Partial<ReviewRepository>): ReviewRepository {
+  return {
+    create: vi.fn().mockResolvedValue(mockReview),
+    findById: vi.fn().mockResolvedValue(mockReview),
+    findRecent: vi.fn().mockResolvedValue([mockReview]),
+    markComplete: vi.fn().mockResolvedValue({ ...mockReview, status: 'complete' }),
+    markError: vi.fn().mockResolvedValue({ ...mockReview, status: 'error' }),
+    ...overrides,
+  };
+}
+
 async function collectTokens(iterable: AsyncIterable<string>): Promise<string[]> {
   const tokens: string[] = [];
   for await (const token of iterable) tokens.push(token);
@@ -22,7 +45,23 @@ async function collectTokens(iterable: AsyncIterable<string>): Promise<string[]>
 
 describe('ReviewOrchestrator', () => {
 
+  it('creates a pending review before yielding any tokens', async () => {
+    const repo = makeMockRepository();
+    const mockAI: AIService = { async *generateReview() { yield 'hello'; } };
+    const orchestrator = new ReviewOrchestrator(mockAI, repo);
+
+    await collectTokens(orchestrator.generateReview(mockResult, 'const x = 1;'));
+
+    expect(repo.create).toHaveBeenCalledWith({
+      filename: 'test.ts',
+      language: 'TypeScript',
+      lineCount: 5,
+      analysisResult: mockResult,
+    });
+  });
+
   it('yields all tokens from the AI service in order', async () => {
+    const repo = makeMockRepository();
     const mockAI: AIService = {
       async *generateReview() {
         yield 'Hello';
@@ -31,7 +70,7 @@ describe('ReviewOrchestrator', () => {
       },
     };
 
-    const orchestrator = new ReviewOrchestrator(mockAI);
+    const orchestrator = new ReviewOrchestrator(mockAI, repo);
     const tokens = await collectTokens(
       orchestrator.generateReview(mockResult, 'const x = 1;'),
     );
@@ -39,48 +78,54 @@ describe('ReviewOrchestrator', () => {
     expect(tokens).toEqual(['Hello', ', ', 'world']);
   });
 
-  it('yields nothing when the AI service yields nothing', async () => {
-    const mockAI: AIService = {
-      async *generateReview() { /* intentionally empty */ },
-    };
-
-    const orchestrator = new ReviewOrchestrator(mockAI);
-    const tokens = await collectTokens(
-      orchestrator.generateReview(mockResult, 'const x = 1;'),
-    );
-
-    expect(tokens).toHaveLength(0);
-  });
-
-  it('propagates errors thrown by the AI service', async () => {
+  it('marks the review complete with accumulated text after all tokens', async () => {
+    const repo = makeMockRepository();
     const mockAI: AIService = {
       async *generateReview() {
-        throw new Error('API quota exceeded');
-        yield ''; // unreachable — required for TypeScript to infer the return type
+        yield 'Hello';
+        yield ', world';
       },
     };
 
-    const orchestrator = new ReviewOrchestrator(mockAI);
+    const orchestrator = new ReviewOrchestrator(mockAI, repo);
+    await collectTokens(orchestrator.generateReview(mockResult, 'const x = 1;'));
+
+    expect(repo.markComplete).toHaveBeenCalledWith('test-uuid', 'Hello, world');
+  });
+
+  it('marks the review as error and re-throws when the AI service throws', async () => {
+    const repo = makeMockRepository();
+    const mockAI: AIService = {
+      async *generateReview() {
+        throw new Error('API quota exceeded');
+        yield '';
+      },
+    };
+
+    const orchestrator = new ReviewOrchestrator(mockAI, repo);
 
     await expect(
       collectTokens(orchestrator.generateReview(mockResult, 'const x = 1;')),
     ).rejects.toThrow('API quota exceeded');
+
+    expect(repo.markError).toHaveBeenCalledWith('test-uuid', 'API quota exceeded');
   });
 
-  it('passes the correct request shape to the AI service', async () => {
-    let capturedSource = '';
-
+  it('does not call markComplete if an error occurs', async () => {
+    const repo = makeMockRepository();
     const mockAI: AIService = {
-      async *generateReview(request) {
-        capturedSource = request.source;
-        yield 'ok';
+      async *generateReview() {
+        throw new Error('fail');
+        yield '';
       },
     };
 
-    const orchestrator = new ReviewOrchestrator(mockAI);
-    await collectTokens(orchestrator.generateReview(mockResult, 'const x = 42;'));
+    const orchestrator = new ReviewOrchestrator(mockAI, repo);
+    await expect(
+      collectTokens(orchestrator.generateReview(mockResult, 'const x = 1;')),
+    ).rejects.toThrow();
 
-    expect(capturedSource).toBe('const x = 42;');
+    expect(repo.markComplete).not.toHaveBeenCalled();
   });
 
 });
