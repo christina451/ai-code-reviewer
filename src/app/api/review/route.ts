@@ -1,27 +1,27 @@
 import { analyzeFile, ParseError } from '@/services/analysis-service';
 import { createReviewOrchestrator } from '@/composition-root';
+import {
+  buildAnalysisCacheKey,
+  getCachedAnalysis,
+  setCachedAnalysis,
+} from '@/infra/cache';
 import type { AnalysisResult } from '@/domain/types';
 import type { ReviewOrchestrator } from '@/services/review-orchestrator';
 
 /**
  * POST /api/review
  *
- * Accepts: multipart/form-data with a "file" field containing a
- * TypeScript or JavaScript source file.
+ * Accepts: multipart/form-data with a "file" field.
  *
- * Returns: text/event-stream with three event types:
+ * Returns: text/event-stream with:
  *   { type: 'analysis', payload: AnalysisResult }  — first, always
+ *   { type: 'cache_hit', hit: boolean }             — indicates if analysis was cached
  *   { type: 'token',    content: string }           — one per LLM token
  *   { type: 'done' }                                — terminal
  *   { type: 'error',   message: string }            — on AI failure
- *
- * Error responses (before streaming starts):
- *   400 — missing or invalid file field
- *   422 — source file has a syntax error (ParseError)
- *   500 — internal analysis failure
  */
 export async function POST(request: Request): Promise<Response> {
-  // --- Step 1: parse the uploaded file ---
+  // --- Parse the upload ---
   let formData: FormData;
   try {
     formData = await request.formData();
@@ -40,25 +40,40 @@ export async function POST(request: Request): Promise<Response> {
   const source = await file.text();
   const filename = file.name;
 
-  // --- Step 2: run static analysis synchronously ---
-  // Must happen before the stream starts so we can return a proper HTTP
-  // status code on parse failure. Once streaming begins, status is fixed.
+  // --- Static analysis with cache-aside pattern ---
+  // Cache check must happen before streaming starts so we can still
+  // return a non-200 status code on analysis failure.
+  const cacheKey = buildAnalysisCacheKey(source, filename);
   let analysisResult: AnalysisResult;
-  try {
-    analysisResult = analyzeFile(source, filename);
-  } catch (err) {
-    if (err instanceof ParseError) {
-      return Response.json({ error: err.message }, { status: 422 });
+  let cacheHit = false;
+
+  const cachedResult = await getCachedAnalysis(cacheKey);
+
+  if (cachedResult) {
+    // Cache hit — skip analysis entirely.
+    analysisResult = cachedResult;
+    cacheHit = true;
+  } else {
+    // Cache miss — run full analysis.
+    try {
+      analysisResult = analyzeFile(source, filename);
+    } catch (err) {
+      if (err instanceof ParseError) {
+        return Response.json({ error: err.message }, { status: 422 });
+      }
+      console.error('Unexpected analysis error:', err);
+      return Response.json({ error: 'Static analysis failed' }, { status: 500 });
     }
-    console.error('Unexpected analysis error:', err);
-    return Response.json({ error: 'Static analysis failed' }, { status: 500 });
+
+    // Store in cache for future requests. Fire-and-forget — don't await
+    // so the cache write doesn't add latency to the response.
+    void setCachedAnalysis(cacheKey, analysisResult);
   }
 
-  // --- Step 3: stream analysis result + AI review ---
   const orchestrator = createReviewOrchestrator();
 
   return new Response(
-    buildSSEStream(analysisResult, source, orchestrator),
+    buildSSEStream(analysisResult, source, orchestrator, cacheHit),
     {
       headers: {
         'Content-Type': 'text/event-stream',
@@ -69,17 +84,11 @@ export async function POST(request: Request): Promise<Response> {
   );
 }
 
-/**
- * Converts the orchestrator's AsyncIterable<string> into a
- * ReadableStream of SSE-formatted bytes.
- *
- * Extracted as a named function (rather than inlined) so it can
- * be read and reasoned about independently of the request parsing above.
- */
 function buildSSEStream(
   analysisResult: AnalysisResult,
   source: string,
   orchestrator: ReviewOrchestrator,
+  cacheHit: boolean,
 ): ReadableStream<Uint8Array> {
   const encoder = new TextEncoder();
 
@@ -88,9 +97,8 @@ function buildSSEStream(
 
   return new ReadableStream({
     async start(controller) {
-      // Always emit the analysis result first. The UI can render metrics
-      // immediately while the LLM review is still generating.
       controller.enqueue(encode({ type: 'analysis', payload: analysisResult }));
+      controller.enqueue(encode({ type: 'cache_hit', hit: cacheHit }));
 
       try {
         for await (const token of orchestrator.generateReview(analysisResult, source)) {
