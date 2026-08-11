@@ -37,4 +37,9 @@ describe('parseSSELine', () => {
     expect(parseSSELine(line)).toBe('Hello, world!');
   });
 
+  it('returns null for an empty content string', () => {
+    const line = 'data: {"choices":[{"delta":{"content":""},"index":0}]}';
+    expect(parseSSELine(line)).toBeNull();
+});
+
 });
