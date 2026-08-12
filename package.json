@@ -9,7 +9,9 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "migrate": "npx tsx scripts/migrate.ts"
+    "migrate": "npx tsx scripts/migrate.ts",
+    "benchmark": "npx tsx benchmark/run.ts",
+    "benchmark:ci": "npx tsx benchmark/run.ts && echo 'Benchmark passed'"
   },
   "dependencies": {
     "@typescript-eslint/typescript-estree": "^8.62.1",
