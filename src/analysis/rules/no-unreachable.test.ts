@@ -86,4 +86,14 @@ describe('no-unreachable rule', () => {
     expect(findings[0].line).toBe(3);
   });
 
+  it('does not flag hoisted function declarations after return', () => {
+  const findings = analyse(`
+    function outer() {
+      return inner();
+      function inner() { return 1; }
+    }
+  `);
+  expect(findings).toHaveLength(0);
+});
+
 });

@@ -39,6 +39,8 @@ function checkBlock(
 
   for (const statement of node.body) {
     if (terminatorType !== null) {
+      if (statement.type === 'FunctionDeclaration') continue;
+      
       findings.push({
         ruleId: RULE_ID,
         severity: 'error',

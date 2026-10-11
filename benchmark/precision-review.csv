@@ -1,0 +1,247 @@
+file,rule,severity,line,message,context,true_positive
+arrays.ts,function-length,warning,217,Function 'sortedDiff' is 51 lines long (threshold: 50),sortedDiff,1
+batcher.test.ts,function-length,warning,3,Function 'anonymous' is 76 lines long (threshold: 50),anonymous,1
+batcher.test.ts,function-length,warning,4,Function 'anonymous' is 74 lines long (threshold: 50),anonymous,1
+buffer.ts,cyclomatic-complexity,warning,366,Function 'decodeBase64' has cyclomatic complexity of 14 (threshold: 10),decodeBase64,1
+buffer.ts,function-length,warning,366,Function 'decodeBase64' is 60 lines long (threshold: 50),decodeBase64,1
+buffer.ts,nesting-depth,error,366,Function 'decodeBase64' has a maximum nesting depth of 7 (threshold: 4),decodeBase64,1
+bundler.ts,cyclomatic-complexity,warning,41,Function 'parseBundlerArgs' has cyclomatic complexity of 12 (threshold: 10),parseBundlerArgs,1
+bundler.ts,function-length,warning,41,Function 'parseBundlerArgs' is 73 lines long (threshold: 50),parseBundlerArgs,1
+color.ts,nesting-depth,warning,221,Function 'toRGBA' has a maximum nesting depth of 6 (threshold: 4),toRGBA,1
+color.ts,cyclomatic-complexity,warning,670,Function 'parse' has cyclomatic complexity of 14 (threshold: 10),parse,1
+color.ts,todo-fixme,info,698,TODO: Support more formats as needed,,1
+color.ts,cyclomatic-complexity,error,702,Function 'parseNamedKeyword' has cyclomatic complexity of 150 (threshold: 10),parseNamedKeyword,1
+color.ts,function-length,error,702,Function 'parseNamedKeyword' is 154 lines long (threshold: 50),parseNamedKeyword,1
+color.ts,cyclomatic-complexity,error,913,Function '_parseHexDigit' has cyclomatic complexity of 23 (threshold: 10),_parseHexDigit,1
+comparers.ts,cyclomatic-complexity,warning,180,Function 'extractNameAndExtension' has cyclomatic complexity of 11 (threshold: 10),extractNameAndExtension,1
+create-client-router-filter.ts,cyclomatic-complexity,warning,13,Function 'createClientRouterFilter' has cyclomatic complexity of 11 (threshold: 10),createClientRouterFilter,1
+create-client-router-filter.ts,function-length,warning,13,Function 'createClientRouterFilter' is 70 lines long (threshold: 50),createClientRouterFilter,1
+date.ts,cyclomatic-complexity,error,26,Function 'fromNow' has cyclomatic complexity of 57 (threshold: 10),fromNow,1
+date.ts,function-length,error,26,Function 'fromNow' is 181 lines long (threshold: 50),fromNow,1
+desktopEnvironmentInfo.ts,cyclomatic-complexity,error,28,Function 'getDesktopEnvironment' has cyclomatic complexity of 30 (threshold: 10),getDesktopEnvironment,1
+desktopEnvironmentInfo.ts,function-length,warning,28,Function 'getDesktopEnvironment' is 74 lines long (threshold: 50),getDesktopEnvironment,1
+download-swc.ts,function-length,warning,12,Function 'extractBinary' is 95 lines long (threshold: 50),extractBinary,1
+editArcTracker.ts,cyclomatic-complexity,warning,106,Function 'normalizeReplacements' has cyclomatic complexity of 12 (threshold: 10),normalizeReplacements,1
+editArcTracker.ts,cyclomatic-complexity,warning,141,Function 'compose' has cyclomatic complexity of 14 (threshold: 10),compose,1
+editArcTracker.ts,function-length,warning,141,Function 'compose' is 77 lines long (threshold: 50),compose,1
+editArcTracker.ts,cyclomatic-complexity,warning,255,Function 'getLineCountInfo' has cyclomatic complexity of 11 (threshold: 10),getLineCountInfo,1
+editArcTracker.ts,function-length,warning,255,Function 'getLineCountInfo' is 53 lines long (threshold: 50),getLineCountInfo,1
+envfile.ts,todo-fixme,info,6,"TODO: @connor4312: this can go away (if only used in Node.js targets) and be",,1
+envfile.ts,function-length,warning,14,Function 'parseEnvFile' is 87 lines long (threshold: 50),parseEnvFile,1
+envfile.ts,cyclomatic-complexity,warning,37,Function 'parseLine' has cyclomatic complexity of 12 (threshold: 10),parseLine,1
+equals.ts,cyclomatic-complexity,warning,53,Function 'structuralEquals' has cyclomatic complexity of 17 (threshold: 10),structuralEquals,1
+extpath.ts,cyclomatic-complexity,warning,47,Function 'getRoot' has cyclomatic complexity of 17 (threshold: 10),getRoot,1
+extpath.ts,function-length,warning,47,Function 'getRoot' is 66 lines long (threshold: 50),getRoot,1
+extpath.ts,nesting-depth,warning,47,Function 'getRoot' has a maximum nesting depth of 6 (threshold: 4),getRoot,1
+extpath.ts,cyclomatic-complexity,warning,121,Function 'isUNC' has cyclomatic complexity of 11 (threshold: 10),isUNC,1
+extpath.ts,cyclomatic-complexity,warning,169,Function 'isValidBasename' has cyclomatic complexity of 15 (threshold: 10),isValidBasename,1
+extpath.ts,cyclomatic-complexity,warning,227,Function 'isEqualOrParent' has cyclomatic complexity of 15 (threshold: 10),isEqualOrParent,1
+find-config.test.ts,function-length,warning,7,Function 'anonymous' is 74 lines long (threshold: 50),anonymous,1
+find-config.ts,cyclomatic-complexity,warning,34,Function 'findConfig' has cyclomatic complexity of 12 (threshold: 10),findConfig,1
+find-config.ts,function-length,warning,34,Function 'findConfig' is 67 lines long (threshold: 50),findConfig,1
+find-root.test.ts,function-length,error,54,Function 'anonymous' is 277 lines long (threshold: 50),anonymous,1
+find-root.ts,cyclomatic-complexity,warning,145,Function 'findRootDirAndLockFiles' has cyclomatic complexity of 15 (threshold: 10),findRootDirAndLockFiles,1
+find-root.ts,function-length,warning,145,Function 'findRootDirAndLockFiles' is 89 lines long (threshold: 50),findRootDirAndLockFiles,1
+format-cli-help-output.ts,function-length,warning,7,Function 'formatCliHelpOutput' is 88 lines long (threshold: 50),formatCliHelpOutput,1
+fuzzyScorer.ts,cyclomatic-complexity,warning,52,Function 'doScoreFuzzy' has cyclomatic complexity of 18 (threshold: 10),doScoreFuzzy,1
+fuzzyScorer.ts,function-length,error,52,Function 'doScoreFuzzy' is 105 lines long (threshold: 50),doScoreFuzzy,1
+fuzzyScorer.ts,function-length,warning,158,Function 'computeCharScore' is 79 lines long (threshold: 50),computeCharScore,1
+fuzzyScorer.ts,cyclomatic-complexity,warning,251,Function 'scoreSeparatorAtPos' has cyclomatic complexity of 11 (threshold: 10),scoreSeparatorAtPos,1
+fuzzyScorer.ts,cyclomatic-complexity,warning,474,Function 'doScoreItemFuzzySingle' has cyclomatic complexity of 11 (threshold: 10),doScoreItemFuzzySingle,1
+fuzzyScorer.ts,function-length,warning,474,Function 'doScoreItemFuzzySingle' is 82 lines long (threshold: 50),doScoreItemFuzzySingle,1
+fuzzyScorer.ts,cyclomatic-complexity,error,623,Function 'compareItemsByFuzzyScore' has cyclomatic complexity of 27 (threshold: 10),compareItemsByFuzzyScore,1
+fuzzyScorer.ts,function-length,warning,623,Function 'compareItemsByFuzzyScore' is 61 lines long (threshold: 50),compareItemsByFuzzyScore,1
+fuzzyScorer.ts,cyclomatic-complexity,warning,747,Function 'fallbackCompare' has cyclomatic complexity of 16 (threshold: 10),fallbackCompare,1
+generate-interception-routes-rewrites.test.ts,function-length,error,16,Function 'anonymous' is 2272 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,17,Function 'anonymous' is 221 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,239,Function 'anonymous' is 295 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,308,Function 'anonymous' is 54 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,535,Function 'anonymous' is 100 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,636,Function 'anonymous' is 69 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,706,Function 'anonymous' is 235 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,837,Function 'anonymous' is 51 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,889,Function 'anonymous' is 51 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,942,Function 'anonymous' is 196 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,1139,Function 'anonymous' is 63 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,1229,Function 'anonymous' is 265 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,1495,Function 'anonymous' is 792 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,1568,Function 'anonymous' is 91 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,1702,Function 'anonymous' is 70 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,1773,Function 'anonymous' is 94 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,1868,Function 'anonymous' is 55 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,1924,Function 'anonymous' is 130 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,warning,2055,Function 'anonymous' is 73 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.test.ts,function-length,error,2129,Function 'anonymous' is 157 lines long (threshold: 50),anonymous,1
+generate-interception-routes-rewrites.ts,function-length,warning,9,Function 'generateInterceptionRoutesRewrites' is 52 lines long (threshold: 50),generateInterceptionRoutesRewrites,1
+has-necessary-dependencies.ts,nesting-depth,warning,34,Function 'hasNecessaryDependencies' has a maximum nesting depth of 5 (threshold: 4),hasNecessaryDependencies,1
+hash.ts,function-length,warning,155,Function 'update' is 55 lines long (threshold: 50),update,1
+hotReload.ts,nesting-depth,warning,93,Function 'anonymous' has a maximum nesting depth of 5 (threshold: 4),anonymous,1
+image.ts,cyclomatic-complexity,error,22,Function 'readImageDimensions' has cyclomatic complexity of 27 (threshold: 10),readImageDimensions,1
+image.ts,cyclomatic-complexity,warning,49,Function 'readJpegDimensions' has cyclomatic complexity of 18 (threshold: 10),readJpegDimensions,1
+image.ts,cyclomatic-complexity,error,109,Function 'readWebPDimensions' has cyclomatic complexity of 22 (threshold: 10),readWebPDimensions,1
+inline-static-env.ts,function-length,error,12,Function 'inlineStaticEnv' is 109 lines long (threshold: 50),inlineStaticEnv,1
+is-serializable-props.ts,function-length,error,18,Function 'isSerializableProps' is 126 lines long (threshold: 50),isSerializableProps,1
+is-serializable-props.ts,cyclomatic-complexity,warning,49,Function 'isSerializable' has cyclomatic complexity of 11 (threshold: 10),isSerializable,1
+is-serializable-props.ts,function-length,warning,49,Function 'isSerializable' is 92 lines long (threshold: 50),isSerializable,1
+json.ts,function-length,error,201,Function 'createScanner' is 359 lines long (threshold: 50),createScanner,1
+json.ts,cyclomatic-complexity,warning,244,Function 'scanNumber' has cyclomatic complexity of 20 (threshold: 10),scanNumber,1
+json.ts,cyclomatic-complexity,warning,285,Function 'scanString' has cyclomatic complexity of 20 (threshold: 10),scanString,1
+json.ts,function-length,warning,285,Function 'scanString' is 79 lines long (threshold: 50),scanString,1
+json.ts,cyclomatic-complexity,error,365,Function 'scanNext' has cyclomatic complexity of 43 (threshold: 10),scanNext,1
+json.ts,function-length,error,365,Function 'scanNext' is 156 lines long (threshold: 50),scanNext,1
+json.ts,cyclomatic-complexity,warning,522,Function 'isUnknownContentCharacter' has cyclomatic complexity of 11 (threshold: 10),isUnknownContentCharacter,1
+json.ts,cyclomatic-complexity,warning,561,Function 'isWhitespace' has cyclomatic complexity of 12 (threshold: 10),isWhitespace,1
+json.ts,function-length,error,725,Function 'getLocation' is 115 lines long (threshold: 50),getLocation,1
+json.ts,function-length,warning,896,Function 'parseTree' is 61 lines long (threshold: 50),parseTree,1
+json.ts,cyclomatic-complexity,warning,961,Function 'findNodeAtLocation' has cyclomatic complexity of 14 (threshold: 10),findNodeAtLocation,1
+json.ts,function-length,error,1069,Function 'visit' is 241 lines long (threshold: 50),visit,1
+json.ts,cyclomatic-complexity,warning,1092,Function 'scanNext' has cyclomatic complexity of 16 (threshold: 10),scanNext,1
+jsonEdit.ts,cyclomatic-complexity,error,14,Function 'setProperty' has cyclomatic complexity of 33 (threshold: 10),setProperty,1
+jsonEdit.ts,function-length,error,14,Function 'setProperty' is 107 lines long (threshold: 50),setProperty,1
+jsonEdit.ts,nesting-depth,warning,14,Function 'setProperty' has a maximum nesting depth of 6 (threshold: 4),setProperty,1
+jsonErrorMessages.ts,cyclomatic-complexity,warning,12,Function 'getParseErrorMessage' has cyclomatic complexity of 11 (threshold: 10),getParseErrorMessage,1
+jsonFormatter.ts,cyclomatic-complexity,error,56,Function 'format' has cyclomatic complexity of 41 (threshold: 10),format,1
+jsonFormatter.ts,function-length,error,56,Function 'format' is 148 lines long (threshold: 50),format,1
+jsonFormatter.ts,nesting-depth,warning,56,Function 'format' has a maximum nesting depth of 6 (threshold: 4),format,1
+jsonRpcProtocol.ts,function-length,warning,215,Function '_handleRequest' is 55 lines long (threshold: 50),_handleRequest,1
+keybindingParser.ts,function-length,warning,11,Function '_readModifiers' is 64 lines long (threshold: 50),_readModifiers,1
+keybindings.ts,cyclomatic-complexity,warning,171,Function 'isDuplicateModifierCase' has cyclomatic complexity of 12 (threshold: 10),isDuplicateModifierCase,1
+keyCodes.ts,cyclomatic-complexity,warning,488,Function 'anonymous' has cyclomatic complexity of 15 (threshold: 10),anonymous,1
+keyCodes.ts,function-length,error,488,Function 'anonymous' is 282 lines long (threshold: 50),anonymous,1
+labels.ts,cyclomatic-complexity,warning,52,Function 'getPathLabel' has cyclomatic complexity of 13 (threshold: 10),getPathLabel,1
+labels.ts,todo-fixme,warning,77,"HACK: , but in order to figure out if the",,1
+labels.ts,cyclomatic-complexity,warning,96,Function 'getRelativePathLabel' has cyclomatic complexity of 15 (threshold: 10),getRelativePathLabel,1
+labels.ts,todo-fixme,warning,106,"HACK: , but in order to figure out the folder",,1
+labels.ts,cyclomatic-complexity,error,214,Function 'shorten' has cyclomatic complexity of 30 (threshold: 10),shorten,1
+labels.ts,function-length,error,214,Function 'shorten' is 111 lines long (threshold: 50),shorten,1
+labels.ts,nesting-depth,warning,214,Function 'shorten' has a maximum nesting depth of 6 (threshold: 4),shorten,1
+labels.ts,cyclomatic-complexity,warning,347,Function 'template' has cyclomatic complexity of 15 (threshold: 10),template,1
+labels.ts,function-length,warning,347,Function 'template' is 64 lines long (threshold: 50),template,1
+labels.ts,nesting-depth,warning,347,Function 'template' has a maximum nesting depth of 6 (threshold: 4),template,1
+layout.ts,cyclomatic-complexity,warning,108,Function 'layout2d' has cyclomatic complexity of 19 (threshold: 10),layout2d,1
+layout.ts,function-length,warning,108,Function 'layout2d' is 59 lines long (threshold: 50),layout2d,1
+load-custom-routes.test.ts,function-length,error,3,Function 'anonymous' is 174 lines long (threshold: 50),anonymous,1
+load-custom-routes.test.ts,function-length,error,4,Function 'anonymous' is 172 lines long (threshold: 50),anonymous,1
+load-custom-routes.test.ts,function-length,warning,78,Function 'anonymous' is 97 lines long (threshold: 50),anonymous,1
+load-custom-routes.ts,cyclomatic-complexity,error,147,Function 'checkCustomRoutes' has cyclomatic complexity of 71 (threshold: 10),checkCustomRoutes,1
+load-custom-routes.ts,function-length,error,147,Function 'checkCustomRoutes' is 342 lines long (threshold: 50),checkCustomRoutes,1
+load-custom-routes.ts,nesting-depth,error,147,Function 'checkCustomRoutes' has a maximum nesting depth of 7 (threshold: 4),checkCustomRoutes,1
+load-custom-routes.ts,cyclomatic-complexity,warning,229,Function 'checkInvalidHasMissing' has cyclomatic complexity of 15 (threshold: 10),checkInvalidHasMissing,1
+load-custom-routes.ts,function-length,warning,229,Function 'checkInvalidHasMissing' is 54 lines long (threshold: 50),checkInvalidHasMissing,1
+load-custom-routes.ts,cyclomatic-complexity,error,501,Function 'processRoutes' has cyclomatic complexity of 25 (threshold: 10),processRoutes,1
+load-custom-routes.ts,function-length,warning,501,Function 'processRoutes' is 83 lines long (threshold: 50),processRoutes,1
+load-custom-routes.ts,cyclomatic-complexity,warning,603,Function 'loadRewrites' has cyclomatic complexity of 16 (threshold: 10),loadRewrites,1
+load-custom-routes.ts,function-length,warning,603,Function 'loadRewrites' is 85 lines long (threshold: 50),loadRewrites,1
+load-custom-routes.ts,cyclomatic-complexity,warning,703,Function 'loadCustomRoutes' has cyclomatic complexity of 18 (threshold: 10),loadCustomRoutes,1
+load-custom-routes.ts,function-length,error,703,Function 'loadCustomRoutes' is 160 lines long (threshold: 50),loadCustomRoutes,1
+map.ts,cyclomatic-complexity,warning,549,Function 'touch' has cyclomatic complexity of 11 (threshold: 10),touch,1
+map.ts,function-length,warning,549,Function 'touch' is 61 lines long (threshold: 50),touch,1
+markdownLinks.ts,cyclomatic-complexity,warning,84,Function 'collectEdits' has cyclomatic complexity of 14 (threshold: 10),collectEdits,1
+mkcert.ts,function-length,warning,35,Function 'downloadBinary' is 62 lines long (threshold: 50),downloadBinary,1
+mkcert.ts,cyclomatic-complexity,warning,98,Function 'createSelfSignedCertificate' has cyclomatic complexity of 14 (threshold: 10),createSelfSignedCertificate,1
+mkcert.ts,function-length,warning,98,Function 'createSelfSignedCertificate' is 86 lines long (threshold: 50),createSelfSignedCertificate,1
+oauth.ts,function-length,warning,944,Function 'fetchDynamicRegistration' is 57 lines long (threshold: 50),fetchDynamicRegistration,1
+oauth.ts,cyclomatic-complexity,error,1007,Function 'parseWWWAuthenticateHeader' has cyclomatic complexity of 22 (threshold: 10),parseWWWAuthenticateHeader,1
+oauth.ts,function-length,warning,1007,Function 'parseWWWAuthenticateHeader' is 97 lines long (threshold: 50),parseWWWAuthenticateHeader,1
+oauth.ts,nesting-depth,warning,1007,Function 'parseWWWAuthenticateHeader' has a maximum nesting depth of 6 (threshold: 4),parseWWWAuthenticateHeader,1
+oauth.ts,function-length,warning,1198,Function 'fetchResourceMetadata' is 91 lines long (threshold: 50),fetchResourceMetadata,1
+oauth.ts,function-length,warning,1348,Function 'fetchAuthorizationServerMetadata' is 73 lines long (threshold: 50),fetchAuthorizationServerMetadata,1
+patch-incorrect-lockfile.ts,cyclomatic-complexity,error,39,Function 'patchIncorrectLockfile' has cyclomatic complexity of 29 (threshold: 10),patchIncorrectLockfile,1
+patch-incorrect-lockfile.ts,function-length,error,39,Function 'patchIncorrectLockfile' is 139 lines long (threshold: 50),patchIncorrectLockfile,1
+path.ts,cyclomatic-complexity,warning,98,Function 'normalizeString' has cyclomatic complexity of 20 (threshold: 10),normalizeString,1
+path.ts,function-length,warning,98,Function 'normalizeString' is 67 lines long (threshold: 50),normalizeString,1
+path.ts,nesting-depth,error,98,Function 'normalizeString' has a maximum nesting depth of 7 (threshold: 4),normalizeString,1
+path.ts,cyclomatic-complexity,error,209,Function 'resolve' has cyclomatic complexity of 38 (threshold: 10),resolve,1
+path.ts,function-length,error,209,Function 'resolve' is 136 lines long (threshold: 50),resolve,1
+path.ts,nesting-depth,error,209,Function 'resolve' has a maximum nesting depth of 7 (threshold: 4),resolve,1
+path.ts,cyclomatic-complexity,error,346,Function 'normalize' has cyclomatic complexity of 39 (threshold: 10),normalize,1
+path.ts,function-length,error,346,Function 'normalize' is 106 lines long (threshold: 50),normalize,1
+path.ts,nesting-depth,warning,346,Function 'normalize' has a maximum nesting depth of 5 (threshold: 4),normalize,1
+path.ts,cyclomatic-complexity,warning,469,Function 'join' has cyclomatic complexity of 16 (threshold: 10),join,1
+path.ts,function-length,warning,469,Function 'join' is 69 lines long (threshold: 50),join,1
+path.ts,cyclomatic-complexity,error,544,Function 'relative' has cyclomatic complexity of 42 (threshold: 10),relative,1
+path.ts,function-length,error,544,Function 'relative' is 157 lines long (threshold: 50),relative,1
+path.ts,cyclomatic-complexity,warning,702,Function 'toNamespacedPath' has cyclomatic complexity of 11 (threshold: 10),toNamespacedPath,1
+path.ts,cyclomatic-complexity,error,733,Function 'dirname' has cyclomatic complexity of 27 (threshold: 10),dirname,1
+path.ts,function-length,warning,733,Function 'dirname' is 87 lines long (threshold: 50),dirname,1
+path.ts,nesting-depth,warning,733,Function 'dirname' has a maximum nesting depth of 5 (threshold: 4),dirname,1
+path.ts,cyclomatic-complexity,error,821,Function 'basename' has cyclomatic complexity of 23 (threshold: 10),basename,1
+path.ts,function-length,warning,821,Function 'basename' is 87 lines long (threshold: 50),basename,1
+path.ts,nesting-depth,warning,821,Function 'basename' has a maximum nesting depth of 6 (threshold: 4),basename,1
+path.ts,cyclomatic-complexity,warning,909,Function 'extname' has cyclomatic complexity of 18 (threshold: 10),extname,1
+path.ts,function-length,warning,909,Function 'extname' is 65 lines long (threshold: 50),extname,1
+path.ts,cyclomatic-complexity,error,977,Function 'parse' has cyclomatic complexity of 40 (threshold: 10),parse,1
+path.ts,function-length,error,977,Function 'parse' is 151 lines long (threshold: 50),parse,1
+path.ts,nesting-depth,warning,977,Function 'parse' has a maximum nesting depth of 6 (threshold: 4),parse,1
+path.ts,cyclomatic-complexity,warning,1242,Function 'relative' has cyclomatic complexity of 18 (threshold: 10),relative,1
+path.ts,function-length,warning,1242,Function 'relative' is 72 lines long (threshold: 50),relative,1
+path.ts,nesting-depth,warning,1242,Function 'relative' has a maximum nesting depth of 5 (threshold: 4),relative,1
+path.ts,cyclomatic-complexity,warning,1349,Function 'basename' has cyclomatic complexity of 20 (threshold: 10),basename,1
+path.ts,function-length,warning,1349,Function 'basename' is 79 lines long (threshold: 50),basename,1
+path.ts,nesting-depth,warning,1349,Function 'basename' has a maximum nesting depth of 6 (threshold: 4),basename,1
+path.ts,cyclomatic-complexity,warning,1429,Function 'extname' has cyclomatic complexity of 15 (threshold: 10),extname,1
+path.ts,function-length,warning,1429,Function 'extname' is 53 lines long (threshold: 50),extname,1
+path.ts,cyclomatic-complexity,error,1485,Function 'parse' has cyclomatic complexity of 21 (threshold: 10),parse,1
+path.ts,function-length,warning,1485,Function 'parse' is 82 lines long (threshold: 50),parse,1
+performance.ts,function-length,warning,70,Function '_define' is 53 lines long (threshold: 50),_define,1
+recursive-copy.ts,function-length,warning,9,Function 'recursiveCopy' is 76 lines long (threshold: 50),recursiveCopy,1
+recursive-copy.ts,function-length,warning,29,Function '_copy' is 53 lines long (threshold: 50),_copy,1
+recursive-readdir.ts,cyclomatic-complexity,warning,48,Function 'recursiveReadDir' has cyclomatic complexity of 12 (threshold: 10),recursiveReadDir,1
+recursive-readdir.ts,function-length,error,48,Function 'recursiveReadDir' is 137 lines long (threshold: 50),recursiveReadDir,1
+recursive-readdir.ts,nesting-depth,warning,48,Function 'recursiveReadDir' has a maximum nesting depth of 5 (threshold: 4),recursiveReadDir,1
+recursive-readdir.ts,cyclomatic-complexity,warning,77,Function 'anonymous' has cyclomatic complexity of 13 (threshold: 10),anonymous,1
+recursive-readdir.ts,nesting-depth,warning,77,Function 'anonymous' has a maximum nesting depth of 5 (threshold: 4),anonymous,1
+resolve-build-paths.ts,cyclomatic-complexity,warning,38,Function 'resolveBuildPaths' has cyclomatic complexity of 12 (threshold: 10),resolveBuildPaths,1
+resolve-build-paths.ts,function-length,warning,38,Function 'resolveBuildPaths' is 74 lines long (threshold: 50),resolveBuildPaths,1
+resolve-from.ts,function-length,warning,8,Function 'resolveFrom' is 51 lines long (threshold: 50),resolveFrom,1
+resources.ts,cyclomatic-complexity,warning,235,Function 'relativePath' has cyclomatic complexity of 11 (threshold: 10),relativePath,1
+resources.ts,todo-fixme,warning,342,"HACK: . Should come from File system provider",,1
+search.ts,cyclomatic-complexity,warning,8,Function 'buildReplaceStringWithCasePreserved' has cyclomatic complexity of 13 (threshold: 10),buildReplaceStringWithCasePreserved,1
+search.ts,nesting-depth,warning,8,Function 'buildReplaceStringWithCasePreserved' has a maximum nesting depth of 5 (threshold: 4),buildReplaceStringWithCasePreserved,1
+sseParser.ts,cyclomatic-complexity,warning,87,Function 'feed' has cyclomatic complexity of 12 (threshold: 10),feed,1
+strings.ts,cyclomatic-complexity,warning,385,Function 'compareSubstringIgnoreCase' has cyclomatic complexity of 11 (threshold: 10),compareSubstringIgnoreCase,1
+strings.ts,cyclomatic-complexity,warning,756,Function 'isEmojiImprecise' has cyclomatic complexity of 20 (threshold: 10),isEmojiImprecise,1
+strings.ts,cyclomatic-complexity,error,1007,Function 'breakBetweenGraphemeBreakType' has cyclomatic complexity of 31 (threshold: 10),breakBetweenGraphemeBreakType,1
+strings.ts,function-length,warning,1007,Function 'breakBetweenGraphemeBreakType' is 79 lines long (threshold: 50),breakBetweenGraphemeBreakType,1
+strings.ts,function-length,warning,1257,Function 'anonymous' is 58 lines long (threshold: 50),anonymous,1
+tfIdf.ts,todo-fixme,info,122,TODO: See if we can compute the tf lazily,,1
+turbopack-cache-seed.ts,function-length,warning,11,Function 'seedTurbopackCacheIfNeeded' is 53 lines long (threshold: 50),seedTurbopackCacheIfNeeded,1
+turbopack-warning.ts,cyclomatic-complexity,warning,41,Function 'validateTurboNextConfig' has cyclomatic complexity of 13 (threshold: 10),validateTurboNextConfig,1
+turbopack-warning.ts,function-length,error,41,Function 'validateTurboNextConfig' is 150 lines long (threshold: 50),validateTurboNextConfig,1
+uriTemplate.ts,cyclomatic-complexity,error,111,Function '_expand' has cyclomatic complexity of 77 (threshold: 10),_expand,1
+uriTemplate.ts,function-length,error,111,Function '_expand' is 168 lines long (threshold: 50),_expand,1
+uriTemplate.ts,nesting-depth,error,111,Function '_expand' has a maximum nesting depth of 9 (threshold: 4),_expand,1
+uriTemplate.ts,cyclomatic-complexity,warning,289,Function 'pctEncode' has cyclomatic complexity of 12 (threshold: 10),pctEncode,1
+uuid.ts,function-length,warning,13,Function 'anonymous' is 53 lines long (threshold: 50),anonymous,1
+verify-root-layout.ts,function-length,warning,57,Function 'verifyRootLayout' is 90 lines long (threshold: 50),verifyRootLayout,1
+verify-root-layout.ts,nesting-depth,warning,57,Function 'verifyRootLayout' has a maximum nesting depth of 5 (threshold: 4),verifyRootLayout,1
+verify-typescript-setup.ts,cyclomatic-complexity,error,52,Function 'verifyAndRunTypeScript' has cyclomatic complexity of 31 (threshold: 10),verifyAndRunTypeScript,1
+verify-typescript-setup.ts,function-length,error,52,Function 'verifyAndRunTypeScript' is 265 lines long (threshold: 50),verifyAndRunTypeScript,1
+worker.test.ts,function-length,warning,49,Function 'anonymous' is 79 lines long (threshold: 50),anonymous,1
+worker.ts,function-length,error,38,Function 'constructor' is 249 lines long (threshold: 50),constructor,1
+worker.ts,cyclomatic-complexity,warning,125,Function 'createWorker' has cyclomatic complexity of 12 (threshold: 10),createWorker,1
+worker.ts,function-length,error,125,Function 'createWorker' is 101 lines long (threshold: 50),createWorker,1
+worker.ts,todo-fixme,info,252,TODO: Remove this once callers stop passing non-serializable values,,1
+yaml.ts,cyclomatic-complexity,error,240,Function 'scanLine' has cyclomatic complexity of 33 (threshold: 10),scanLine,1
+yaml.ts,function-length,warning,240,Function 'scanLine' is 81 lines long (threshold: 50),scanLine,1
+yaml.ts,cyclomatic-complexity,error,322,Function 'scanLineContent' has cyclomatic complexity of 30 (threshold: 10),scanLineContent,1
+yaml.ts,function-length,warning,322,Function 'scanLineContent' is 56 lines long (threshold: 50),scanLineContent,1
+yaml.ts,nesting-depth,error,322,Function 'scanLineContent' has a maximum nesting depth of 12 (threshold: 4),scanLineContent,1
+yaml.ts,cyclomatic-complexity,warning,386,Function 'isBlockColon' has cyclomatic complexity of 12 (threshold: 10),isBlockColon,1
+yaml.ts,cyclomatic-complexity,error,412,Function 'scanQuotedScalar' has cyclomatic complexity of 45 (threshold: 10),scanQuotedScalar,1
+yaml.ts,function-length,error,412,Function 'scanQuotedScalar' is 157 lines long (threshold: 50),scanQuotedScalar,1
+yaml.ts,cyclomatic-complexity,warning,570,Function 'scanUnquotedScalar' has cyclomatic complexity of 19 (threshold: 10),scanUnquotedScalar,1
+yaml.ts,cyclomatic-complexity,warning,605,Function 'isBlockScalarStart' has cyclomatic complexity of 12 (threshold: 10),isBlockScalarStart,1
+yaml.ts,cyclomatic-complexity,error,627,Function 'scanBlockScalar' has cyclomatic complexity of 69 (threshold: 10),scanBlockScalar,1
+yaml.ts,function-length,error,627,Function 'scanBlockScalar' is 224 lines long (threshold: 50),scanBlockScalar,1
+yaml.ts,nesting-depth,warning,627,Function 'scanBlockScalar' has a maximum nesting depth of 6 (threshold: 4),scanBlockScalar,1
+yaml.ts,cyclomatic-complexity,warning,859,Function 'getParentBlockIndent' has cyclomatic complexity of 12 (threshold: 10),getParentBlockIndent,1
+yaml.ts,cyclomatic-complexity,error,1110,Function 'parsePlainMultiline' has cyclomatic complexity of 24 (threshold: 10),parsePlainMultiline,1
+yaml.ts,function-length,error,1110,Function 'parsePlainMultiline' is 141 lines long (threshold: 50),parsePlainMultiline,1
+yaml.ts,nesting-depth,warning,1110,Function 'parsePlainMultiline' has a maximum nesting depth of 5 (threshold: 4),parsePlainMultiline,1
+yaml.ts,cyclomatic-complexity,warning,1254,Function 'parseBlockMapping' has cyclomatic complexity of 13 (threshold: 10),parseBlockMapping,1
+yaml.ts,function-length,warning,1254,Function 'parseBlockMapping' is 52 lines long (threshold: 50),parseBlockMapping,1
+yaml.ts,cyclomatic-complexity,warning,1330,Function 'parseMappingValue' has cyclomatic complexity of 12 (threshold: 10),parseMappingValue,1
+yaml.ts,function-length,warning,1382,Function 'parseBlockSequence' is 54 lines long (threshold: 50),parseBlockSequence,1
+yaml.ts,function-length,warning,1496,Function 'parseFlowMap' is 57 lines long (threshold: 50),parseFlowMap,1
+yaml.ts,cyclomatic-complexity,warning,1606,Function 'parseFlowScalar' has cyclomatic complexity of 11 (threshold: 10),parseFlowScalar,1

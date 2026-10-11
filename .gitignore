@@ -40,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# benchmark corpora — vendored third-party source (vscode, next.js), not
+# ours to commit. Reproducible via benchmark/setup-corpus*.sh, both pinned
+# to fixed commit SHAs. Run the scripts to regenerate before running the
+# benchmark.
+/benchmark/corpus/
+/benchmark/corpus-holdout/

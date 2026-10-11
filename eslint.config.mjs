@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored real-world fixtures for the precision/recall benchmark —
+    // not application code, not meant to lint clean on their own.
+    "benchmark/corpus/**",
+    "benchmark/corpus-holdout/**",
   ]),
 ]);
 

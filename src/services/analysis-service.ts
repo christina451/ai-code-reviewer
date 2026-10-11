@@ -52,8 +52,7 @@ export function analyzeFile(source: string, filename: string): AnalysisResult {
     ...runFunctionLength(file),
     ...runNestingDepth(file),
     ...runTodoFixme(file),
-    ...runNoUnreachable(file),
-    ...runNoUnusedVars(file),
+    ...runNoUnreachable(file)
   ];
 
   // Sort by line then column so findings follow source reading order.

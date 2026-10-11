@@ -11,7 +11,9 @@
     "test:watch": "vitest",
     "migrate": "npx tsx scripts/migrate.ts",
     "benchmark": "npx tsx benchmark/run.ts",
-    "benchmark:ci": "npx tsx benchmark/run.ts && echo 'Benchmark passed'"
+    "benchmark:ci": "npx tsx benchmark/run.ts && echo 'Benchmark passed'",
+    "benchmark:eval": "npx tsx benchmark/evaluate.ts",
+    "benchmark:precision": "npx tsx benchmark/precision.ts"
   },
   "dependencies": {
     "@typescript-eslint/typescript-estree": "^8.62.1",
@@ -30,7 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "tailwindcss": "^4",
-    "tsx": "^4.23.11",
+    "tsx": "^4.23.12",
     "typescript": "^5",
     "vitest": "^4.1.10"
   }

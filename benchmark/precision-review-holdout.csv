@@ -1,0 +1,108 @@
+file,rule,severity,line,message,context,true_positive
+app-info-log.ts,cyclomatic-complexity,warning,64,Function 'logExperimentalInfo' has cyclomatic complexity of 12 (threshold: 10),logExperimentalInfo,1
+app-info-log.ts,function-length,warning,64,Function 'logExperimentalInfo' is 53 lines long (threshold: 50),logExperimentalInfo,1
+chrome-devtools-workspace.ts,todo-fixme,info,64,TODO: Why does this need to be v4 and not v5?,,1
+clone-response.ts,function-length,warning,26,Function 'cloneResponse' is 57 lines long (threshold: 50),cloneResponse,1
+dedupe-fetch.test.ts,function-length,error,31,Function 'anonymous' is 669 lines long (threshold: 50),anonymous,1
+dedupe-fetch.test.ts,function-length,error,44,Function 'anonymous' is 210 lines long (threshold: 50),anonymous,1
+dedupe-fetch.test.ts,function-length,warning,298,Function 'anonymous' is 95 lines long (threshold: 50),anonymous,1
+dedupe-fetch.test.ts,function-length,warning,418,Function 'anonymous' is 82 lines long (threshold: 50),anonymous,1
+dedupe-fetch.ts,todo-fixme,info,19,TODO: warn for non-standard extensions differing.,,1
+dedupe-fetch.ts,function-length,warning,44,Function 'createDedupeFetch' is 86 lines long (threshold: 50),createDedupeFetch,1
+dedupe-fetch.ts,cyclomatic-complexity,warning,50,Function 'dedupeFetch' has cyclomatic complexity of 12 (threshold: 10),dedupeFetch,1
+dedupe-fetch.ts,function-length,warning,50,Function 'dedupeFetch' is 79 lines long (threshold: 50),dedupeFetch,1
+dev-bundler-service.ts,todo-fixme,info,65,TODO: remove after ensure is pulled out of server,,1
+dev-bundler-service.ts,todo-fixme,info,83,TODO: See if this can be moved into hotReloader or removed.,,1
+find-page-file.ts,function-length,warning,79,Function 'createValidFileMatcher' is 96 lines long (threshold: 50),createValidFileMatcher,1
+find-page-file.ts,todo-fixme,info,107,TODO: -METADATA: support other metadata routes,,1
+i18n-provider.test.ts,function-length,error,5,Function 'anonymous' is 123 lines long (threshold: 50),anonymous,1
+i18n-provider.test.ts,function-length,warning,71,Function 'anonymous' is 56 lines long (threshold: 50),anonymous,1
+id.ts,nesting-depth,warning,53,Function 'value' has a maximum nesting depth of 6 (threshold: 4),value,1
+implicit-tags.test.ts,function-length,error,4,Function 'anonymous' is 114 lines long (threshold: 50),anonymous,1
+lru-cache.test.ts,function-length,error,3,Function 'anonymous' is 333 lines long (threshold: 50),anonymous,1
+lru-cache.test.ts,function-length,warning,92,Function 'anonymous' is 93 lines long (threshold: 50),anonymous,1
+lru-cache.test.ts,function-length,warning,265,Function 'anonymous' is 70 lines long (threshold: 50),anonymous,1
+mock-request.test.ts,function-length,warning,21,Function 'anonymous' is 67 lines long (threshold: 50),anonymous,1
+nls.ts,cyclomatic-complexity,warning,42,Function 'resolveNLSConfiguration' has cyclomatic complexity of 19 (threshold: 10),resolveNLSConfiguration,1
+nls.ts,function-length,error,42,Function 'resolveNLSConfiguration' is 120 lines long (threshold: 50),resolveNLSConfiguration,1
+osReleaseInfo.ts,cyclomatic-complexity,warning,16,Function 'getOSReleaseInfo' has cyclomatic complexity of 15 (threshold: 10),getOSReleaseInfo,1
+osReleaseInfo.ts,function-length,warning,16,Function 'getOSReleaseInfo' is 59 lines long (threshold: 50),getOSReleaseInfo,1
+osReleaseInfo.ts,nesting-depth,warning,16,Function 'getOSReleaseInfo' has a maximum nesting depth of 6 (threshold: 4),getOSReleaseInfo,1
+parse-stack.test.ts,function-length,warning,3,Function 'anonymous' is 70 lines long (threshold: 50),anonymous,1
+patch-fetch.test.ts,function-length,error,15,Function 'anonymous' is 152 lines long (threshold: 50),anonymous,1
+patch-fetch.test.ts,function-length,warning,31,Function 'anonymous' is 89 lines long (threshold: 50),anonymous,1
+patch-fetch.ts,cyclomatic-complexity,warning,52,Function 'shouldProcessFetchConfigForWorkUnit' has cyclomatic complexity of 15 (threshold: 10),shouldProcessFetchConfigForWorkUnit,1
+patch-fetch.ts,function-length,warning,171,Function 'trackFetchMetric' is 54 lines long (threshold: 50),trackFetchMetric,1
+patch-fetch.ts,function-length,warning,267,Function 'createCachedDynamicResponse' is 74 lines long (threshold: 50),createCachedDynamicResponse,1
+patch-fetch.ts,function-length,error,347,Function 'createPatchedFetcher' is 1040 lines long (threshold: 50),createPatchedFetcher,1
+patch-fetch.ts,cyclomatic-complexity,warning,352,Function 'fetch' has cyclomatic complexity of 12 (threshold: 10),fetch,1
+patch-fetch.ts,function-length,error,352,Function 'fetch' is 1019 lines long (threshold: 50),fetch,1
+patch-fetch.ts,cyclomatic-complexity,error,401,Function 'anonymous' has cyclomatic complexity of 233 (threshold: 10),anonymous,1
+patch-fetch.ts,function-length,error,401,Function 'anonymous' is 957 lines long (threshold: 50),anonymous,1
+patch-fetch.ts,nesting-depth,warning,401,Function 'anonymous' has a maximum nesting depth of 6 (threshold: 4),anonymous,1
+patch-fetch.ts,todo-fixme,info,466,TODO: Stop accumulating tags in client prerender. (fallthrough),,1
+patch-fetch.ts,todo-fixme,info,755,TODO: should we consider this case an invariant?,,1
+patch-fetch.ts,function-length,error,888,Function 'doOriginalFetch' is 158 lines long (threshold: 50),doOriginalFetch,1
+patch-fetch.ts,cyclomatic-complexity,error,938,Function 'anonymous' has cyclomatic complexity of 30 (threshold: 10),anonymous,1
+patch-fetch.ts,function-length,error,938,Function 'anonymous' is 103 lines long (threshold: 50),anonymous,1
+patch-fetch.ts,todo-fixme,info,1110,TODO: it seems like we also hit this after revalidates in dev?,,1
+patch-set-header.ts,todo-fixme,info,51,"TODO: (wyattjoh) find out why this is called multiple times resulting in duplicate cookies being added",,1
+pfs.ts,cyclomatic-complexity,warning,264,Function 'stat' has cyclomatic complexity of 12 (threshold: 10),stat,1
+pfs.ts,function-length,warning,264,Function 'stat' is 51 lines long (threshold: 50),stat,1
+pfs.ts,cyclomatic-complexity,warning,683,Function 'realcase' has cyclomatic complexity of 11 (threshold: 10),realcase,1
+pfs.ts,nesting-depth,warning,683,Function 'realcase' has a maximum nesting depth of 5 (threshold: 4),realcase,1
+powershell.ts,cyclomatic-complexity,warning,121,Function 'findPSCoreWindowsInstallation' has cyclomatic complexity of 14 (threshold: 10),findPSCoreWindowsInstallation,1
+powershell.ts,function-length,warning,121,Function 'findPSCoreWindowsInstallation' is 71 lines long (threshold: 50),findPSCoreWindowsInstallation,1
+powershell.ts,function-length,warning,250,Function 'enumerateDefaultPowerShellInstallations' is 56 lines long (threshold: 50),enumerateDefaultPowerShellInstallations,1
+processes.ts,cyclomatic-complexity,warning,86,Function 'findExecutable' has cyclomatic complexity of 19 (threshold: 10),findExecutable,1
+processes.ts,function-length,warning,86,Function 'findExecutable' is 56 lines long (threshold: 50),findExecutable,1
+ps.ts,function-length,error,14,Function 'listProcesses' is 232 lines long (threshold: 50),listProcesses,1
+ps.ts,function-length,error,15,Function 'anonymous' is 230 lines long (threshold: 50),anonymous,1
+ps.ts,cyclomatic-complexity,warning,49,Function 'findName' has cyclomatic complexity of 14 (threshold: 10),findName,1
+release-compression-stream.test.ts,function-length,error,98,Function 'anonymous' is 101 lines long (threshold: 50),anonymous,1
+render-server.ts,function-length,error,90,Function 'initializeImpl' is 104 lines long (threshold: 50),initializeImpl,1
+render-server.ts,todo-fixme,info,145,TODO: remove onCacheEntry once onCacheEntryV2 is the default.,,1
+render-server.ts,todo-fixme,info,156,TODO: remove onCacheEntry once onCacheEntryV2 is the default.,,1
+render-server.ts,todo-fixme,info,164,TODO: remove onCacheEntry once onCacheEntryV2 is the default.,,1
+router-server.ts,cyclomatic-complexity,error,93,Function 'initialize' has cyclomatic complexity of 22 (threshold: 10),initialize,1
+router-server.ts,function-length,error,93,Function 'initialize' is 931 lines long (threshold: 50),initialize,1
+router-server.ts,cyclomatic-complexity,error,246,Function 'requestHandlerImpl' has cyclomatic complexity of 25 (threshold: 10),requestHandlerImpl,1
+router-server.ts,function-length,error,246,Function 'requestHandlerImpl' is 562 lines long (threshold: 50),requestHandlerImpl,1
+router-server.ts,todo-fixme,info,360,TODO: log socket errors?,,1
+router-server.ts,todo-fixme,info,363,TODO: log socket errors?,,1
+router-server.ts,cyclomatic-complexity,warning,368,Function 'invokeRender' has cyclomatic complexity of 14 (threshold: 10),invokeRender,1
+router-server.ts,function-length,warning,368,Function 'invokeRender' is 72 lines long (threshold: 50),invokeRender,1
+router-server.ts,cyclomatic-complexity,error,441,Function 'handleRequest' has cyclomatic complexity of 69 (threshold: 10),handleRequest,1
+router-server.ts,function-length,error,441,Function 'handleRequest' is 342 lines long (threshold: 50),handleRequest,1
+router-server.ts,todo-fixme,info,528,TODO: throw invariant if we resolved to this but it wasn't handled?,,1
+router-server.ts,cyclomatic-complexity,warning,902,Function 'upgradeHandler' has cyclomatic complexity of 13 (threshold: 10),upgradeHandler,1
+router-server.ts,function-length,error,902,Function 'upgradeHandler' is 106 lines long (threshold: 50),upgradeHandler,1
+router-server.ts,todo-fixme,info,905,TODO: log socket errors?,,1
+router-server.ts,todo-fixme,info,909,TODO: log socket errors?,,1
+router-server.ts,todo-fixme,info,987,TODO: allow upgrade requests to pages/app paths?,,1
+server-action-request-meta.ts,cyclomatic-complexity,warning,6,Function 'getServerActionRequestMetadata' has cyclomatic complexity of 11 (threshold: 10),getServerActionRequestMetadata,1
+shell.ts,cyclomatic-complexity,warning,29,Function 'getSystemShellUnixLike' has cyclomatic complexity of 11 (threshold: 10),getSystemShellUnixLike,1
+source-maps.ts,todo-fixme,info,25,TODO: (veil): Upstream types,,1
+source-maps.ts,todo-fixme,info,36,TODO: Move to https://github.com/jridgewell/sourcemaps which is actively maintained,,1
+source-maps.ts,todo-fixme,info,40,TODO: Move to https://github.com/jridgewell/sourcemaps which is actively maintained,,1
+source-maps.ts,function-length,warning,132,Function 'filterStackFrameDEV' is 52 lines long (threshold: 50),filterStackFrameDEV,1
+source-maps.ts,todo-fixme,info,151,TODO: ESM sourcemaps are O(1) but CommonJS sourcemaps are O(Number of CJS modules).,,1
+source-maps.ts,todo-fixme,info,170,TODO: Share cache with patch-error-inspect,,1
+source-maps.ts,todo-fixme,info,256,TODO: Might be more efficient to extract the relevant section from Index Maps.,,1
+source-maps.ts,cyclomatic-complexity,warning,301,Function 'ignoreListAnonymousStackFramesIfSandwiched' has cyclomatic complexity of 12 (threshold: 10),ignoreListAnonymousStackFramesIfSandwiched,1
+start-server.ts,function-length,warning,53,Function 'getProcessIdUsingPort' is 71 lines long (threshold: 50),getProcessIdUsingPort,1
+start-server.ts,function-length,warning,57,Function 'anonymous' is 56 lines long (threshold: 50),anonymous,1
+start-server.ts,function-length,error,184,Function 'startServer' is 429 lines long (threshold: 50),startServer,1
+start-server.ts,function-length,error,319,Function 'anonymous' is 237 lines long (threshold: 50),anonymous,1
+start-server.ts,cyclomatic-complexity,error,320,Function 'anonymous' has cyclomatic complexity of 32 (threshold: 10),anonymous,1
+start-server.ts,function-length,error,320,Function 'anonymous' is 234 lines long (threshold: 50),anonymous,1
+start-server.ts,nesting-depth,warning,320,Function 'anonymous' has a maximum nesting depth of 5 (threshold: 4),anonymous,1
+start-server.ts,function-length,warning,399,Function 'cleanup' is 75 lines long (threshold: 50),cleanup,1
+start-server.ts,function-length,warning,408,Function 'anonymous' is 65 lines long (threshold: 50),anonymous,1
+start-server.ts,function-length,warning,615,Function 'anonymous' is 60 lines long (threshold: 50),anonymous,1
+terminalEncoding.ts,function-length,warning,42,Function 'resolveTerminalEncoding' is 60 lines long (threshold: 50),resolveTerminalEncoding,1
+utils.test.ts,function-length,warning,132,Function 'anonymous' is 64 lines long (threshold: 50),anonymous,1
+windowsVersion.ts,cyclomatic-complexity,warning,21,Function 'initWindowsVersionInfo' has cyclomatic complexity of 11 (threshold: 10),initWindowsVersionInfo,1
+zip.ts,function-length,warning,107,Function 'extractZip' is 57 lines long (threshold: 50),extractZip,1
+zip.ts,function-length,warning,204,Function 'zip' is 59 lines long (threshold: 50),zip,1
+zip.ts,nesting-depth,warning,204,Function 'zip' has a maximum nesting depth of 6 (threshold: 4),zip,1
