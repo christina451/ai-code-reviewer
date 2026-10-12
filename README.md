@@ -21,7 +21,6 @@ Source file
 │  • Function length      │
 │  • Nesting depth        │
 │  • Unreachable code     │
-│  • Unused variables     │
 │  • TODO/FIXME detection │
 └──────────┬──────────────┘
            │ AnalysisResult (structured JSON)
@@ -59,7 +58,21 @@ Key patterns: Repository pattern, Strategy/Adapter (AIService), Dependency Inver
 
 ## Benchmark results
 
-Run `npm run benchmark` to evaluate all static analysis rules against a corpus of known-good and known-bad TypeScript snippets.
+Two independent measurements of the five active rules, against real-world TypeScript source
+(microsoft/vscode, vercel/next.js) — methodology and full numbers in [`benchmark/README.md`](benchmark/README.md):
+
+| Metric | Result | Sample |
+|---|---|---|
+| Precision (dev set) | 246/246 (100%) | 192 files |
+| Precision (held-out set) | 107/107 (100%) | 78 files |
+| Recall (seeded issues) | 100/100 (100%) | 5 issue types × 20 files |
+
+A sixth rule, `no-unused-vars`, was run against the dev set during this evaluation, found to have a
+false-positive on closure captures, and removed from the active pipeline rather than shipped with a
+known bug (see `src/services/analysis-service.ts`).
+
+Run `npm run benchmark` for the quick accuracy check used in CI, or see `benchmark/README.md` for how
+to reproduce the full precision/recall evaluation above.
 
 ## Tech stack
 
@@ -69,7 +82,7 @@ Run `npm run benchmark` to evaluate all static analysis rules against a corpus o
 - **Cache:** Redis 7 (content-hash keyed, fail-silent)
 - **AST:** @typescript-eslint/typescript-estree
 - **AI:** OpenRouter or Google Gemini (swappable via env var)
-- **Tests:** Vitest (70+ unit and integration tests)
+- **Tests:** Vitest (82 unit and integration tests)
 - **Infra:** Docker Compose, multi-stage Dockerfile
 
 ## Setup
