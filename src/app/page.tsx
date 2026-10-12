@@ -26,6 +26,9 @@ type State =
       analysisResult: AnalysisResult;
       cacheHit: boolean;
       reviewText: string;
+      // Set when the AI step fails after analysis succeeded — the analysis
+      // is still worth showing, so this doesn't move to the 'error' phase.
+      reviewError?: string;
     }
   | { phase: 'error'; message: string };
 
@@ -204,7 +207,12 @@ export default function HomePage() {
               prev.phase === 'streaming' ? { ...prev, phase: 'done' } : prev,
             );
           } else if (event.type === 'error') {
-            setState({ phase: 'error', message: event.message });
+            const message = event.message;
+            setState(prev =>
+              prev.phase === 'streaming'
+                ? { ...prev, phase: 'done', reviewError: message }
+                : { phase: 'error', message },
+            );
           }
         }
       }
@@ -257,6 +265,7 @@ export default function HomePage() {
       <ReviewDisplay
         text={state.reviewText}
         isStreaming={state.phase === 'streaming'}
+        error={state.reviewError}
       />
 
       {state.phase === 'done' && (
