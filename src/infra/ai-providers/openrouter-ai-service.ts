@@ -57,7 +57,7 @@ export class OpenRouterAIService implements AIService {
 
   constructor(config: OpenRouterConfig) {
     this.apiKey = config.apiKey;
-    this.model = config.model ?? DEFAULT_MODEL;
+    this.model = config.model || DEFAULT_MODEL;
   }
 
   async *generateReview(request: ReviewRequest): AsyncIterable<string> {
