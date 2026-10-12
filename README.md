@@ -2,7 +2,7 @@
 
 AI-assisted code review with a deterministic static analysis engine.
 
-The key architectural decision: the LLM never sees raw source code and gets asked to "review it." It receives a structured JSON findings report computed by an AST-based analysis engine — only then does it prioritize, explain, and suggest fixes. Deterministic metrics are computed deterministically. The LLM handles reasoning, not fact-finding.
+The key architectural decision: the LLM is never just handed source code and asked to "review it." It receives the source together with a structured JSON findings report computed by an AST-based analysis engine, and treats the engine's metrics as ground truth — its job is to prioritize, explain, and suggest fixes. Deterministic metrics are computed deterministically. Anything the LLM flags beyond the engine's findings is labelled in the review as its own judgement, not tool output.
 
 ## How it works
 
@@ -38,7 +38,7 @@ Source file
 
 ## Architecture
 
-Four-layer design with strict dependency direction (each layer only imports from the layer below it):
+Layered design with a strict dependency direction — `domain → analysis → services → infra → app` — where each layer imports only from layers earlier in that chain:
 
 ```
 src/
@@ -76,13 +76,13 @@ to reproduce the full precision/recall evaluation above.
 
 ## Tech stack
 
-- **Frontend:** Next.js 15 (App Router), TypeScript, Tailwind CSS
+- **Frontend:** Next.js 16 (App Router), TypeScript, Tailwind CSS
 - **Backend:** Next.js API Routes, layered architecture
 - **Database:** PostgreSQL 16 (JSONB for analysis results)
 - **Cache:** Redis 7 (content-hash keyed, fail-silent)
 - **AST:** @typescript-eslint/typescript-estree
 - **AI:** OpenRouter or Google Gemini (swappable via env var)
-- **Tests:** Vitest (82 unit and integration tests)
+- **Tests:** Vitest (unit and integration tests, no database or network required)
 - **Infra:** Docker Compose, multi-stage Dockerfile
 
 ## Setup
@@ -91,8 +91,8 @@ to reproduce the full precision/recall evaluation above.
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/<you>/code-review-platform.git
-cd code-review-platform
+git clone https://github.com/christina451/ai-code-reviewer.git
+cd ai-code-reviewer
 npm install
 
 # 2. Configure environment

@@ -2,10 +2,12 @@
 
 ## What this project is
 A full-stack AI-assisted code review platform. The core architectural decision:
-the LLM never receives raw source code and is asked to "review it." It receives
-a structured JSON findings report from a deterministic AST-based analysis engine.
+the LLM is never just handed source code and asked to "review it." It receives
+the source together with a structured JSON findings report from a deterministic
+AST-based analysis engine, and is told to treat that report as ground truth.
 The LLM handles reasoning (prioritize, explain, suggest). The engine handles facts
-(complexity scores, nesting depth, line counts).
+(complexity scores, nesting depth, line counts). Anything the LLM flags beyond the
+report goes in a separate "Other Observations" section labelled as its own judgement.
 
 ## Architecture — layer order (strict, enforced by import paths)
 domain → services → infra → app
