@@ -43,12 +43,23 @@ describe('prompt-builder', () => {
       expect(prompt).toContain('deterministic and accurate');
     });
 
-    it('defines the four required output sections', () => {
+    it('defines the five required output sections', () => {
       const prompt = buildSystemPrompt();
       expect(prompt).toContain('## Summary');
       expect(prompt).toContain('## Issues');
+      expect(prompt).toContain('## Other Observations');
       expect(prompt).toContain('## Maintainability');
       expect(prompt).toContain('## Suggested Tests');
+    });
+
+    it('tells the LLM to cite finding line numbers from the report verbatim', () => {
+      const prompt = buildSystemPrompt();
+      expect(prompt).toContain('cite its "line" value exactly as given');
+    });
+
+    it('labels other observations as reviewer judgement, not tool output', () => {
+      const prompt = buildSystemPrompt();
+      expect(prompt).toContain('not detected by static analysis');
     });
 
     it('asks for a maintainability score', () => {
