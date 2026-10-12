@@ -12,6 +12,7 @@ export class ParseError extends Error {
   constructor(
     message: string,
     public readonly filename: string,
+    public readonly line?: number,
   ) {
     super(message);
     this.name = 'ParseError';
@@ -35,6 +36,13 @@ export function parseFile(source: string, filename: string): ParsedFile {
     };
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown parse error';
-    throw new ParseError(`Failed to parse ${filename}: ${message}`, filename);
+    // typescript-estree's TSError carries the 1-based line of the failure.
+    const line = (err as { lineNumber?: unknown }).lineNumber;
+    const at = typeof line === 'number' ? ` (line ${line})` : '';
+    throw new ParseError(
+      `Failed to parse ${filename}${at}: ${message}`,
+      filename,
+      typeof line === 'number' ? line : undefined,
+    );
   }
 }

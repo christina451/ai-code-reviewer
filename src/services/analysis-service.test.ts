@@ -113,6 +113,14 @@ describe('analyzeFile (integration)', () => {
       .toThrow(ParseError);
   });
 
+  it('includes the line number of a syntax error in the message', () => {
+    const source = 'const a = 1;\nconst b = 2;\nfunction broken( {\n}';
+    expect(() => analyzeFile(source, 'bad.ts')).toThrow(/^Failed to parse bad\.ts \(line 4\): /);
+    expect(() => analyzeFile(source, 'bad.ts')).toThrow(
+      expect.objectContaining({ line: 4 }),
+    );
+  });
+
   it('includes filename in the result', () => {
     const result = analyzeFile('const x = 1;', 'my-file.ts');
     expect(result.filename).toBe('my-file.ts');
