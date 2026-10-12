@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { parseFile } from '@/analysis/ast/parser';
-import {
-  runCyclomaticComplexity,
-  COMPLEXITY_WARNING_THRESHOLD,
-  COMPLEXITY_ERROR_THRESHOLD,
-} from './cyclomatic-complexity';
+import { runCyclomaticComplexity } from './cyclomatic-complexity';
 
 function analyse(source: string) {
   return runCyclomaticComplexity(parseFile(source, 'test.ts'));

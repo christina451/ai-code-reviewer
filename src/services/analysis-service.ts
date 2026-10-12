@@ -4,7 +4,6 @@ import { runFunctionLength } from '@/analysis/rules/function-length';
 import { runNestingDepth } from '@/analysis/rules/nesting-depth';
 import { runTodoFixme } from '@/analysis/rules/todo-fixme';
 import { runNoUnreachable } from '@/analysis/rules/no-unreachable';
-import { runNoUnusedVars } from '@/analysis/rules/no-unused-vars';
 import { collectFunctionMetrics } from '@/analysis/rules/metrics';
 import type { AnalysisResult, Finding } from '@/domain/types';
 

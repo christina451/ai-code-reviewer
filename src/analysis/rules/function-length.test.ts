@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { parseFile } from '@/analysis/ast/parser';
-import {
-  runFunctionLength,
-  FUNCTION_LENGTH_WARNING,
-  FUNCTION_LENGTH_ERROR,
-} from './function-length';
+import { runFunctionLength } from './function-length';
 
 function analyse(source: string) {
   return runFunctionLength(parseFile(source, 'test.ts'));

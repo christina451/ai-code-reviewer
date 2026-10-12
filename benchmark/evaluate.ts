@@ -150,21 +150,6 @@ function __seeded_unreachable__(): number {
   };
 }
 
-function seedUnusedVariable(source: string): SeedResult {
-  const inject = `
-// BENCHMARK_SEEDED: unused variable
-function __seeded_unusedVar__(): number {
-  const __seeded_unused__ = 99;
-  return 0;
-}
-`;
-  return {
-    source: source + inject,
-    expectedRuleId: 'no-unused-vars',
-    description: 'Injected declared but never referenced variable',
-  };
-}
-
 function seedTodoComment(source: string): SeedResult {
   const inject = `
 // TODO: BENCHMARK_SEEDED - this is a seeded todo comment
@@ -208,7 +193,6 @@ function runRecallBenchmark(
   for (const { filename, source } of seedingSubset) {
     for (const seeder of SEEDERS) {
       const seeded = seeder(source);
-      const seededFilename = `${filename.replace('.ts', '')}_seeded_${seeder.name}.ts`;
 
       try {
         const result = analyzeFile(seeded.source, filename);

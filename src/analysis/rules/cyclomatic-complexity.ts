@@ -1,4 +1,3 @@
-import type { TSESTree } from '@typescript-eslint/typescript-estree';
 import type { Finding } from '@/domain/types';
 import type { ParsedFile } from '@/analysis/ast/parser';
 import type { VisitorHandlers } from '@/analysis/ast/visitor';
